@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Assignment 3</title>
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="jquery.form.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="jQuery.js"></script>
+		<script src="jquery.form.alerts.js" type="text/javascript"></script>
+		<script src="jquery.ui.draggable.js" type="text/javascript"></script>
+		<script src="jquery.js"></script>
+		
+		<script> 
+			$(document).ready(function(){
+				$("form").submit(function() {
+					var check;
+					var email = $("#email").val();
+					var atCheck=email.indexOf("@");
+					var dotCheck=email.indexOf(".");
+					if ($("#name").val() == "") {
+							jAlert('Please enter a valid Name', 'FATAL ERROR');
+							check = false;
+						}
+					else if ($("#email").val() == "" || atCheck<1 || dotCheck<atCheck+2 || dotCheck+2>=email.length) {
+							jAlert('Please enter a valid Email', 'FATAL ERROR');
+							check = false;
+					}
+					else if ($("#comment").val() == "") {
+							jAlert('Please enter a valid Comment', 'FATAL ERROR');
+							check = false;
+					}
+					else { 
+						var check = true;
+					}
+					
+					return check;
+				});
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li><a href="index.html">Welcome</a></li>
+			<li><a href="ttt.html">Tic Tac Toe</a></li>
+			<li><a href="faq.html">FAQ</a></li>
+			<li><a href="registration.html">Registration Form</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+
+		<h1>Contact Us</h1>
+
+		<form style="padding-left:50px;" name="feedback" action="submit.html" onsubmit="return validation();" method="get">
+			
+			Name: <input type="text" id="name"><br>
+			E-mail: <input type="text" id="email"><br>
+			
+			<p style="padding-left:0px;">Comment:</p>
+				<textarea rows="15" cols="50" id="comment"></textarea>
+				<br>
+				<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>

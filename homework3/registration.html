@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Assignment 3</title>
+
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="jquery.form.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+		<script src="jQuery.js"></script>
+		<script src="jquery.form.alerts.js" type="text/javascript"></script>
+		<script src="jquery.ui.draggable.js" type="text/javascript"></script>
+		<script src="jquery.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				$("form").submit(function() {
+					var check;
+					if ($("#firstname").val() == "") {
+						jAlert('Please enter a valid First name', 'FATAL ERROR');
+						check = false;
+					}
+					else if ($("#lastname").val() == "") {
+							jAlert('Please enter a valid Last name', 'FATAL ERROR');
+							check = false;
+					}
+					else if ($("#login").val() == "") {
+							jAlert('Please enter a valid Login', 'FATAL ERROR');
+							check = false;
+					}
+					else if ($("#password").val() == "") {
+							jAlert('Please enter a valid Password', 'FATAL ERROR');
+							check = false;
+					}
+					else { 
+						var check = true;
+					}
+			
+					return check;
+				});
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li><a href="index.html">Welcome</a></li>
+			<li><a href="ttt.html">Tic Tac Toe</a></li>
+			<li><a href="faq.html">FAQ</a></li>
+			<li><a href="registration.html">Registration Form</a></li>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+
+		<h1>Registration Form</h1>
+
+		<form style="padding-left:50px;" name="registration" action="submit.html" method="get">
+				
+			First name: <input type="text" id="firstname"><br>
+			Last name: <input style="margin-left:4px;" type="text" id="lastname"><br>
+
+			<br>
+
+			Login: <input style="margin-left:31px;" type="text" id="login"><br>
+			Password: <input style="margin-left:8px;" type="text" id="password"><br>
+
+			<br>
+
+			<p style="padding-left: 0px;">Select your Hobbies:</p>
+				<input type="checkbox" name="hobbies" value="basketball">Basketball<br>
+				<input type="checkbox" name="hobbies" value="football">Football<br>
+				<input type="checkbox" name="hobbies" value="football">Baseball<br> 
+				<input type="checkbox" name="hobbies" value="football">Soccer<br> 
+				<input type="checkbox" name="hobbies" value="football">Rugby<br> 
+				<br>
+				<input type="submit" value="Submit">
+		</form>
+	</body>
+</html>
